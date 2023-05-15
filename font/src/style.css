@@ -1,0 +1,66 @@
+:root {
+  /* ! Color */
+  --red: #b33939;
+  --blue: #227093;
+  --green: #218c74;
+  --black: #3d3d3d;
+  --white: #f1f2f6;
+  --orange: #cd6133;
+  --yellow: #ccae62;
+  --purple: #474787;
+
+
+  --red-: #ff5252;
+  --blue-: #34ace0;
+  --green-: #33d9b2;
+  --black-: #4b4b4b;
+  --white-: #ffffff;
+  --orange-: #ff793f;
+  --yellow-: #ffda79;
+  --purple-: #706fd3;
+
+  --primary: linear-gradient(45deg, var(--red) 0%, var(--red-) 100%);
+}
+
+@font-face {
+  font-family: 'song';
+  src: url('./assets/方正仿宋简体.TTF');
+}
+
+@font-face {
+  font-family: 'zhuan';
+  src: url('./assets/三极小篆简.ttf');
+}
+
+@font-face {
+  font-family: 'kai';
+  src: url('./assets/上手碑楷体.ttf');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 设置滚动条的样式 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  border: none;
+}
+
+/* 滚动槽 */
+::-webkit-scrollbar-track {
+  border-radius: 3px;
+  background: var(--white);
+}
+
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background: var(--yellow-);
+}
+
+a {
+  text-decoration: none;
+}
