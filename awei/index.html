@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./src/pic/icon.png">
+  <!--
+    引入外部库
+  -->
+  <script src="./src/lib/vue.js"></script>
+  <script src="./src/lib/jquery.js"></script>
+  <script src="./src/lib/bootstrap.js"></script>
+  <link rel="stylesheet" href="./src/lib/bootstrap.css">
+  <title>阿伟甜品</title>
+</head>
+
+<body>
+  <div id="app">
+    <nav class="navbar navbar-expand-sm bg-warning navbar-dark">
+      <div class="container-fluid">
+        <img class="rounded m-2" style="width: 33px;" src="./src/pic/icon.png">
+        <a class="navbar-brand" href="#">阿伟甜品</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end mx-5 pe-5" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item p-0 btn " :class="[select == 0 ? 'selected' : '']" @click="slt(0)">
+              <a class="nav-link" href="#">首页</a>
+            </li>
+            <li class="nav-item p-0 btn" :class="[select == 1 ? 'selected' : '']" @click="slt(1)">
+              <a class="nav-link" href="#">蛋糕</a>
+            </li>
+            <li class="nav-item p-0 btn" :class="[select == 2 ? 'selected' : '']" @click="slt(2)">
+              <a class="nav-link" href="#">饼干</a>
+            </li>
+            <li class="nav-item p-0 btn" :class="[select == 3 ? 'selected' : '']" @click="slt(3)">
+              <a class="nav-link" href="#">奶茶</a>
+            </li>
+            <li class="nav-item p-0 btn" :class="[select == 4 ? 'selected' : '']" @click="slt(4)">
+              <a class="nav-link" href="#">冰淇淋</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <iframe id="pages" :src="src"></iframe>
+  </div>
+</body>
+
+<script type="module">
+
+  const app = {
+    data() {
+      return {
+        select: 0,
+        src: './page/home.html'
+      }
+    },
+    methods: {
+      slt: function (v) {
+        this.select = v
+        switch (v) {
+          case 0: this.src = 'home'
+            break
+          case 1: this.src = 'cake'
+            break
+          case 2: this.src = 'bicky'
+            break
+          case 3: this.src = 'tea'
+            break
+          case 4: this.src = 'ice'
+            break
+        }
+        this.src = './page/' + this.src + '.html'
+      }
+    },
+  }
+
+  Vue.createApp(app).mount('#app')
+</script>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+  }
+
+  #app {
+    height: 100%;
+    width: 100%;
+    position: relative;
+  }
+
+  .navbar {
+    background-image: linear-gradient(to right, orange, purple);
+  }
+
+  .selected {
+    border-bottom: 2px solid white;
+    border-radius: 0;
+  }
+
+  #pages {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: calc(100% - 65px);
+    background-color: #efefef;
+    /* background-image: url(./src/pic/font_icon.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center; */
+  }
+</style>
+
+</html>

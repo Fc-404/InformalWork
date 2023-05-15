@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--
+    引入外部库
+  -->
+  <script src="../../src/lib/vue.js"></script>
+  <script src="../../src/lib/jquery.js"></script>
+  <link rel="stylesheet" href="../../css/showgoods.css">
+  <title>商品详情页</title>
+</head>
+
+<body>
+  <div id="app">
+    <div id="bg"></div>
+    <img :src="'../../src/pic/bicky/' + name + '.jpg'">
+    <div id="show">
+      <p id="price">售价：{{ price }} ￥</p>
+      <p id="blurb" v-html="blurb"></p>
+      <div id="start">
+        <p>美味程度</p>
+        <div>
+          <img v-for="i in start" :key="i" src="../../src/pic/start.png">
+          <img v-for="i in 5 - start" src="../../src/pic/nostart.png">
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+  const app = {
+    data() {
+      return {
+        name: 'bicky3',
+        price: 8,
+        blurb: '人心情不好时<br>食欲会下降<br>甜品能刺激食欲<br>让人愉悦<br>',
+        start: 4,
+      }
+    },
+    mounted() {
+      $('#bg').css('background-image', 'url(../../src/pic/bicky/' + this.name + '.jpg)')
+    },
+  }
+
+  Vue.createApp(app).mount('#app')
+</script>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--
+    引入外部库
+  -->
+  <script src="../../src/lib/vue.js"></script>
+  <script src="../../src/lib/jquery.js"></script>
+  <link rel="stylesheet" href="../../css/showgoods.css">
+  <title>商品详情页</title>
+</head>
+
+<body>
+  <div id="app">
+    <div id="bg"></div>
+    <img :src="'../../src/pic/tea/' + name + '.jpg'">
+    <div id="show">
+      <p id="price">售价：{{ price }} ￥</p>
+      <p id="blurb" v-html="blurb"></p>
+      <div id="start">
+        <p>美味程度</p>
+        <div>
+          <img v-for="i in start" :key="i" src="../../src/pic/start.png">
+          <img v-for="i in 5 - start" src="../../src/pic/nostart.png">
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+  const app = {
+    data() {
+      return {
+        name: 'tea1',
+        price: 12,
+        blurb: '香草、奶茶<br>果汁<br>我的童年<br>',
+        start: 4,
+      }
+    },
+    mounted() {
+      $('#bg').css('background-image', 'url(../../src/pic/tea/' + this.name + '.jpg)')
+    },
+  }
+
+  Vue.createApp(app).mount('#app')
+</script>
+
+</html>

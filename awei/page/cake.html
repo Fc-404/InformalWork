@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!--
+    引入外部库
+  -->
+  <script src="../src/lib/vue.js"></script>
+  <script src="../src/lib/jquery.js"></script>
+  <script src="../src/lib/bootstrap.js"></script>
+  <link rel="stylesheet" href="../src/lib/bootstrap.css">
+</head>
+
+<body>
+  <div id="app">
+    <div id="title">
+      <p>{{ title }}</p>
+      <img :src="src + '.jpg'">
+    </div>
+    <div id="content" class="">
+      <div>
+        <div class="cell" v-for="i in one" :key="i" @click="open(i)">
+          <img :src="src + i + '.jpg'" title="点击进入详情">
+        </div>
+      </div>
+      <div>
+        <div class="cell" v-for="i in two" :key="i" @click="open(i)">
+          <img :src="src + i + '.jpg'" title="点击进入详情">
+        </div>
+      </div>
+      <div>
+        <div class="cell" v-for="i in three" :key="i" @click="open(i)">
+          <img :src="src + i + '.jpg'" title="点击进入详情">
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+  const app = {
+    data() {
+      return {
+        title: '蛋糕',
+        src: '../src/pic/cake/cake',
+        dir: './cake/',
+        count: 12,
+        one: [],
+        two: [],
+        three: [],
+      }
+    },
+    mounted() {
+      for (let i = 1; i <= this.count; ++i)
+        if (i % 3 == 0)
+          this.three.push(i)
+        else if (i % 2 == 0)
+          this.two.push(i)
+        else
+          this.one.push(i)
+    },
+    methods: {
+      open: function(v) {
+        window.open(this.dir + 'cake' + v + '.html')
+      }
+    },
+  }
+
+  Vue.createApp(app).mount('#app')
+</script>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  html,
+  body {
+    background-color: #efefef;
+  }
+
+  #title {
+    height: 200px;
+    width: 80%;
+    margin: 20px auto;
+    border-radius: 20px;
+    background-image: linear-gradient(135deg, #FD6E6A 10%, #FFC600 100%);
+  }
+
+  #title>p {
+    float: left;
+    font-size: 99px;
+    line-height: 200px;
+    margin-left: 80px;
+    letter-spacing: 200px;
+    color: #efefefcc;
+  }
+
+  #title>img {
+    height: 200px;
+    float: right;
+    border-radius: 20px;
+    box-shadow: -12px 0 24px 2px #5e5e5e66;
+  }
+
+  #content {
+    width: 80%;
+    height: auto;
+    margin: 20px auto 120px auto;
+    /* background-color: #fff; */
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .cell {
+    width: 400px;
+    /* height: 200px; */
+    margin: 44px;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all .2s ease-in-out;
+    position: relative;
+  }
+  
+  .cell:hover {
+    box-shadow: 0 12px 24px 2px #5e5e5e99;
+    transition: all .2s ease-in-out;
+  }
+
+  .cell>img {
+    width: 400px;
+    transition: all .5s ease-in-out;
+    z-index: 9;
+    filter: contrast(100%) brightness(88%);
+  }
+
+  .cell>img:hover {
+    transform: scale(1.4);
+    transition: all .5s ease-in-out;
+    filter: contrast(110%) brightness(100%);
+  }
+</style>
+
+</html>

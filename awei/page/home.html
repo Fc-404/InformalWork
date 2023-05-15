@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="one">
+    <img src="../src/pic/full_icon.png">
+    <p>阿伟甜品<br>AH WEI</p>
+    <p>向上滑动</p>
+  </div>
+  <div id="two">
+    <img src="../src/pic/store.png">
+    <p>关于我们<br>
+      <span>我们是一家专心做糕点的品牌</span><br>
+      <span>包含蛋糕、饼干、奶茶和冰淇淋</span>
+    </p>
+  </div>
+  <div id="three">
+    <p>生产环境</p>
+    <p>安全卫生的生产环境<br>给你最大的保障</p>
+    <img src="../src/pic/schj1.jpg">
+    <img src="../src/pic/schj2.jpg">
+    <img src="../src/pic/schj3.jpg">
+  </div>
+  <div id="four">
+    <p>更多产品请在导航栏选择</p>
+  </div>
+</body>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  #one {
+    width: 100%;
+    height: 100vh;
+    background-color: #131518;
+    position: relative;
+  }
+
+  #one>img {
+    height: 80%;
+    margin-left: 120px;
+    margin-top: 10vh;
+  }
+
+  #one>p {
+    position: absolute;
+    display: block;
+    font-size: 80px;
+    font-weight: 900;
+    color: white;
+    top: 20%;
+    right: 200px;
+
+    background-image: linear-gradient(to right, orange, purple);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  #one>p:nth-child(3) {
+    bottom: 22px;
+    top: auto;
+    right: 300px;
+    font-size: 22px;
+    font-weight: 100;
+    background-image: linear-gradient(to right, purple, orange);
+    animation: breathlamp 2s ease-in-out infinite;
+  }
+
+  #two {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    background-image: linear-gradient(to right, orange, purple);
+  }
+
+  #two>img {
+    height: 60%;
+    position: absolute;
+    top: 20%;
+    right: 0;
+  }
+
+  #two>p {
+    position: absolute;
+    display: block;
+    font-size: 64px;
+    font-weight: 400;
+    color: #efefefdd;
+    top: 30%;
+    left: 100px;
+    line-height: 88px;
+  }
+
+  #two>p>span {
+    font-size: 44px;
+    font-weight: 400;
+    color: #ffffff99;
+  }
+
+  #three {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-color: orange;
+    background-image: linear-gradient(to left, rgb(255, 193, 79), orange);
+  }
+
+  #three>p {
+    font-size: 64px;
+    position: absolute;
+    display: block;
+    font-weight: 900;
+    top: 44px;
+    right: 44px;
+
+    background-image: linear-gradient(to right, #bd4f42, purple);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  #three>p:nth-child(2) {
+    color: #ffffffcc;
+    font-size: 32px;
+    font-weight: 200;
+    left: 12%;
+  }
+
+  #three>img {
+    width: 400px;
+    border-radius: 12px;
+    border: 2px solid rgb(255, 240, 212);
+    position: absolute;
+    bottom: 20%;
+    left: 12%;
+    transition: all .2s ease-in-out;
+  }
+  #three>img:nth-child(4) {
+    left: calc(12% + 300px);
+  }
+  #three>img:nth-child(5) {
+    left: calc(12% + 600px);
+  }
+
+  #three>img:hover {
+    transform: scale(1.2);
+    z-index: 99;
+    transition: all .2s ease-in-out;
+    bottom: calc(20% + 44px);
+    box-shadow: 0 12px 12px 6px #00000066;
+  }
+
+  #four {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(to right, orange, purple);
+  }
+
+  #four>p {
+    font-size: 92px;
+    text-align: center;
+    padding-top: calc(50vh - 50px);
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: coolamp 3s ease-in-out infinite;
+  }
+
+  @keyframes breathlamp {
+    0% {
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes coolamp {
+    0% {
+      background-color: orange
+    }
+    25% {
+      background-color: purple;
+    }
+    100% {
+      background-color: orange;
+    }
+  }
+</style>
+
+<script>
+
+</script>
+
+</html>
